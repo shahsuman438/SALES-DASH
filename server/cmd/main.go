@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/app"
+)
 
 func main() {
-	fmt.Println("Helllo World")
+	app.Start()
 }
