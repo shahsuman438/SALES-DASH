@@ -5,10 +5,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/database"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/middleware"
 )
 
 func Start() {
+	database.ConnectDB()
+
 	gin.SetMode(config.Cnfg.ServerMode)
 
 	server := gin.New()

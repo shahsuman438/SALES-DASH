@@ -12,6 +12,9 @@ import (
 var Cnfg Config
 
 type Config struct {
+	DBUser            string
+	DBPassword        string
+	DBHost            string
 	ServerPort        string
 	ServerHost        string
 	ServerEnvironment string
@@ -41,5 +44,8 @@ func loadConfig() {
 		ServerHost:        os.Getenv("SERVER_HOST"),
 		ServerEnvironment: os.Getenv("SERVER_ENV"),
 		ServerMode:        os.Getenv("SERVER_MODE"),
+		DBUser:            os.Getenv("DB_USER"),
+		DBPassword:        os.Getenv("DB_PASSWORD"),
+		DBHost:            os.Getenv("DB_HOST"),
 	}
 }
