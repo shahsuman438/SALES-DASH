@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/util/logger"
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
