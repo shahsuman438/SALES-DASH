@@ -19,5 +19,8 @@
 __debug_bin
 .env
 
+data/products/*
+data/sales/*
+
 vendor/
 launch.json
