@@ -9,6 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -50,4 +51,29 @@ func SaveMany(ctx *gin.Context, data []interface{}, collectionName string) error
 	collection := db.Collection(collectionName)
 	_, err := collection.InsertMany(ctx, data)
 	return err
+}
+
+func Fetch(ctx *gin.Context, collectionName string) ([]bson.M, error) {
+	collection := db.Collection(collectionName)
+
+	// Find documents in the collection
+	cursor, err := collection.Find(ctx, bson.M{})
+	if err != nil {
+		return nil, err
+	}
+	defer cursor.Close(ctx)
+
+	var documents []bson.M
+	for cursor.Next(ctx) {
+		var doc bson.M
+		if err := cursor.Decode(&doc); err != nil {
+			return nil, err
+		}
+		documents = append(documents, doc)
+	}
+
+	if err := cursor.Err(); err != nil {
+		return nil, err
+	}
+	return documents, nil
 }

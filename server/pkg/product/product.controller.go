@@ -8,6 +8,7 @@ import (
 
 func setupControllers(engine *gin.Engine) {
 	r := engine.Group("/product")
+	r.GET("", GetAllProducts)
 	r.POST("/add", AddProduct)
 	r.POST("/addMany", AddManyProduct)
 }
@@ -44,4 +45,13 @@ func AddManyProduct(c *gin.Context) {
 		return
 	}
 	response.SuccessfullyCreate(c, "Product Created")
+}
+
+func GetAllProducts(c *gin.Context) {
+	data, err := Fetch(c)
+	if err != nil {
+		response.BadRequest(c, err)
+		return
+	}
+	response.Success(c, data)
 }
