@@ -6,11 +6,14 @@ import (
 	"log"
 	"time"
 
+	"github.com/gin-gonic/gin"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
+
+var db *mongo.Database
 
 func ConnectDB() {
 
@@ -33,5 +36,18 @@ func ConnectDB() {
 	if err != nil {
 		logger.Error("Failed to ping MongoDB.", err)
 	}
+	db = client.Database(config.Cnfg.DBName)
 	logger.Info("Database Connect successfully.")
+}
+
+func Save(ctx *gin.Context, data interface{}, collectionName string) error {
+	collection := db.Collection(collectionName)
+	_, err := collection.InsertOne(ctx, data)
+	return err
+}
+
+func SaveMany(ctx *gin.Context, data []interface{}, collectionName string) error {
+	collection := db.Collection(collectionName)
+	_, err := collection.InsertMany(ctx, data)
+	return err
 }

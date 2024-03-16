@@ -10,6 +10,10 @@ func Success(c *gin.Context, body any) {
 	c.JSON(http.StatusOK, body)
 }
 
+func SuccessfullyCreate(c *gin.Context, body any) {
+	c.JSON(http.StatusCreated, body)
+}
+
 func ServerError(c *gin.Context) {
 	c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": "Internal Server Error"})
 }

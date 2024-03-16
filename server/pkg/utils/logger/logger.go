@@ -11,14 +11,12 @@ import (
 	"github.com/rs/zerolog/pkgerrors"
 )
 
-var once sync.Once
-
-type Fields map[string]interface{}
-
-var logger zerolog.Logger
+var (
+	once sync.Once
+	log  zerolog.Logger
+)
 
 func InitLogger() zerolog.Logger {
-	var log zerolog.Logger
 	once.Do(func() {
 		zerolog.ErrorStackMarshaler = pkgerrors.MarshalStack
 		zerolog.TimeFieldFormat = time.RFC3339Nano
@@ -56,31 +54,31 @@ func InitLogger() zerolog.Logger {
 }
 
 func Debug(s string) {
-	logger = InitLogger()
+	logger := InitLogger()
 	logger.Debug().Msg(s)
 }
 
 func Info(s string) {
-	logger = InitLogger()
+	logger := InitLogger()
 	logger.Info().Msg(s)
 }
 
 func Warn(s string) {
-	logger = InitLogger()
+	logger := InitLogger()
 	logger.Warn().Msg(s)
 }
 
 func Error(s string, err error) {
-	logger = InitLogger()
+	logger := InitLogger()
 	logger.Error().Err(err).Msg(s)
 }
 
 func Fatal(s string) {
-	logger = InitLogger()
+	logger := InitLogger()
 	logger.Fatal().Msg(s)
 }
 
 func Panic(s string) {
-	logger = InitLogger()
+	logger := InitLogger()
 	logger.Panic().Msg(s)
 }

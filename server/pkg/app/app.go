@@ -7,6 +7,8 @@ import (
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/database"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/middleware"
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/product"
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/sales"
 )
 
 func Start() {
@@ -22,6 +24,9 @@ func Start() {
 	server.Use(middleware.CORSMiddleware())
 	server.Use(middleware.Auth())
 	server.Use(middleware.JSONLoggerMiddleware())
+
+	product.StartModule(server)
+	sales.StartModule(server)
 
 	server.Run(fmt.Sprintf("%s:%s", config.Cnfg.ServerHost, config.Cnfg.ServerPort))
 }
