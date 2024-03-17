@@ -49,5 +49,6 @@ func loadConfig() {
 		DBPassword:        os.Getenv("DB_PASSWORD"),
 		DBHost:            os.Getenv("DB_HOST"),
 		DBName:            os.Getenv("DB_NAME"),
+		AppURL:            os.Getenv("APP_URL"),
 	}
 }

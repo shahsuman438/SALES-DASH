@@ -22,7 +22,6 @@ func Start() {
 
 	// setup middleware
 	server.Use(middleware.CORSMiddleware())
-	server.Use(middleware.Auth())
 	server.Use(middleware.JSONLoggerMiddleware())
 
 	product.StartModule(server)

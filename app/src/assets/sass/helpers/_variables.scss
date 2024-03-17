@@ -1,0 +1,93 @@
+//Breakpoints
+$mobile: 300px;
+$tablet: 768px;
+$desktop: 1024px;
+
+$gray-200: #BABABA;
+$gray-300: #b5bdd648;
+$danger: #C7382E;
+
+// green shades
+$green-400: #BFEFD3;
+$green-500: #30cc71;
+$green-600: #2cba67;
+$green-700: #229150;
+$green-800: #2E8F00;
+
+// blue shades
+$blue-50: #E7EAF2;
+$blue-100: #B5BDD6;
+$blue-400: #405595;
+$blue-500: #102b7b;
+$blue-600: #0f2770;
+$blue-700: #003B95;
+$blue-800: #0071FF;
+
+
+// Yello shades
+$yellow-50: #FFBB6A;
+$yellow-100: #FF8B00;
+
+
+// red shads
+
+$red-50: #DADADA;
+$red-100: #C94343;
+
+// neutral shades
+$neutral-0: #FFFFFF;
+$neutral-100: #F5F5F5;
+$neutral-400: #4D4D4D;
+$neutral-500: #202020;
+$neutral-900: #0D0D0D;
+$neutral-600: #555;
+$neutral-700: #777;
+
+
+$primary-white: $neutral-0;
+$primary-black: $neutral-900;
+$primary-blue: $blue-500;
+$secondary-blue: $blue-700;
+$primary-gray: $neutral-400;
+$davys-gray: $neutral-600;
+$primary-green: $green-500;
+$secondary-green: $green-800;
+$primary-red: $red-100;
+$secondary-white: #f8f8fa;
+$secondary-black: $neutral-500;
+$primary-orange: $yellow-100 ;
+$primary-color: $primary-green;
+$bg-white-primary: $primary-white;
+$bg-blue-primary: $primary-blue;
+$bg-gray-primary: $neutral-500;
+
+$font-family-primary: 'Poppins', sans-serif;
+$font-size-base: 16px;
+
+$font-sizes: (
+  'xxs': 10px,
+  'xs': 12px,
+  's': 14px,
+  'sm': $font-size-base,
+  'm': 18px,
+  'ml': 20px,
+  'l': 22px,
+  'xl': 24px,
+  'xxl': 26px,
+);
+
+$font-weights: (
+  'thin': 100,
+  'light': 400,
+  'regular': 500,
+  'bold': 700,
+  'heavy': 900,
+);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+  font-style: normal;
+}

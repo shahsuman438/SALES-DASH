@@ -1,0 +1,50 @@
+@use "sass:meta";
+@import 'variables';
+
+//BEM(Block Element Modifier) Naming Convention
+//For Element
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+//For Modifiers
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Media queries 
+@mixin for-size($break) {
+  @if $break =='mobile' {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  }
+
+  @else if $break =='tablet' {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  }
+
+  @else if $break =='desktop' {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+
+  @else {
+    @if (meta.type-of($break)=='number') {
+      @media (min-width: $break) {
+        @content;
+      }
+    }
+
+    @else {
+      @error "No value could be retrieved for '#{$break}'";
+    }
+  }
+}
