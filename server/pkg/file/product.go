@@ -51,7 +51,7 @@ func ProcessProductFiles(pathToCsv string) error {
 			logger.Error("Error Converting Cost_Price", err)
 			continue
 		}
-		product.CostPrice = cp
+		product.CostPrice = float64(cp)
 
 		sp, err := strconv.Atoi(record[4])
 		if err != nil {

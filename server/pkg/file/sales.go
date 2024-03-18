@@ -62,7 +62,7 @@ func ProcessSalesFile(pathToCsv string) error {
 			continue
 		}
 
-		transaction.TotalTransactionAmount = tAmount
+		transaction.TotalTransactionAmount = float64(tAmount)
 		transaction.TransactionDate = record[4]
 
 		transactions = append(transactions, transaction)

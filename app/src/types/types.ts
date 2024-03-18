@@ -25,3 +25,12 @@ export type salesByProductType = {
     totalRevenue: number
     totalProfit: number
 }
+
+export type salesByBrandType = {
+    sn: number
+    brandName: string
+    mostSoldProduct: string
+    totalQuantitySold: number
+    totalRevenue: number
+    totalProfit: number
+}
