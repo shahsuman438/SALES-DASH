@@ -8,7 +8,6 @@ type SummeryReport struct {
 }
 
 type SalesByProduct struct {
-	Sn                int     `json:"sn"`
 	ProductName       string  `json:"productName"`
 	BrandName         string  `json:"brandName"`
 	Category          string  `json:"category"`
@@ -17,7 +16,6 @@ type SalesByProduct struct {
 	TotalProfit       float64 `json:"totalProfit"`
 }
 type SalesByBrand struct {
-	Sn                int     `json:"sn"`
 	BrandName         string  `json:"brandName"`
 	MostSoldProduct   string  `json:"mostSoldProduct"`
 	TotalQuantitySold int     `json:"totalQuantitySold"`

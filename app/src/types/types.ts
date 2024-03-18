@@ -17,7 +17,6 @@ export type salesType = {
 }
 
 export type salesByProductType = {
-    sn: number
     productName: string
     brandName: string
     category: string
@@ -27,7 +26,6 @@ export type salesByProductType = {
 }
 
 export type salesByBrandType = {
-    sn: number
     brandName: string
     mostSoldProduct: string
     totalQuantitySold: number

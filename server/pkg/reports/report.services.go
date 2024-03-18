@@ -91,13 +91,10 @@ func GetSalesByProduct(ctx *gin.Context) ([]SalesByProduct, error) {
 
 	// Create and populate SalesByProduct slice
 	var result []SalesByProduct
-	var idx = 0
 	for key, value := range salesByProduct {
-		idx++
 		product := productMap[key]
 		profit := value.TotalTransactionAmount - (float64(value.TotalQuantity) * product.CostPrice)
 		sale := SalesByProduct{
-			Sn:                idx,
 			ProductName:       product.ProductName,
 			BrandName:         product.BrandName,
 			Category:          product.Category,
@@ -157,13 +154,10 @@ func calculateProfit(sale sales.Sales, pd product.Product) float64 {
 
 func convertToSalesByBrandSlice(salesByBrand map[string]saleByBrandItr) []SalesByBrand {
 	var result []SalesByBrand
-	idx := 0
 	for key, value := range salesByBrand {
-		idx++
 		profit := value.TotalProfit
 
 		sale := SalesByBrand{
-			Sn:                idx,
 			BrandName:         key,
 			MostSoldProduct:   getMostSoldProduct(value.MostSoldProduct),
 			TotalQuantitySold: value.TotalQuantity,

@@ -18,7 +18,7 @@ const SalesByBrand = () => {
     return (
         <div>
             <h1 className='text-blue'>Report Sales By Brand</h1>
-            <Table data={data} itemsPerPage={100} />
+            <Table data={data} />
         </div>
     )
 }

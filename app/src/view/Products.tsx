@@ -27,7 +27,7 @@ const Products = () => {
     return (
         <div>
             <h1 className='text-blue'>ALL Products</h1>
-            <Table data={data} itemsPerPage={20} />
+            <Table data={data} />
         </div>
     )
 }

@@ -6,7 +6,6 @@ import salesService from '../services/sales.service';
 
 const Sales = () => {
     const [data, setData] = useState<salesType[]>([]);
-
     useEffect(() => {
         salesService.getAllSales()
             .then(res => {
@@ -19,7 +18,7 @@ const Sales = () => {
     return (
         <div>
             <h1 className='text-blue'>ALL Sales</h1>
-            <Table data={data} itemsPerPage={100} />
+            <Table data={data} />
         </div>
     )
 }
