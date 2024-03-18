@@ -18,8 +18,8 @@ const Sales = () => {
     }, [])
     return (
         <div>
-            <h1 className='text-blue'>ALL Products</h1>
-            <Table data={data} itemsPerPage={20} />
+            <h1 className='text-blue'>ALL Sales</h1>
+            <Table data={data} itemsPerPage={100} />
         </div>
     )
 }
