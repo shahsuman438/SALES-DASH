@@ -73,11 +73,12 @@ func GetSalesByProduct(ctx *gin.Context) ([]SalesByProduct, error) {
 		return nil, err
 	}
 
-	productMap := make(map[int]product.Product)
+	productMap := make(map[int]product.Product, len(allProduct))
+	for _, prdct := range allProduct {
+		productMap[prdct.ProductId] = prdct
+	}
 
 	salesByProduct := make(map[int]saleByProductItr)
-
-	// Aggregate sales data by product
 	for _, sale := range allSales {
 		if _, ok := salesByProduct[sale.ProductId]; !ok {
 			salesByProduct[sale.ProductId] = saleByProductItr{}
@@ -88,18 +89,11 @@ func GetSalesByProduct(ctx *gin.Context) ([]SalesByProduct, error) {
 		salesByProduct[sale.ProductId] = salesData
 	}
 
-	for _, prdct := range allProduct {
-		if _, ok := productMap[prdct.ProductId]; !ok {
-			productMap[prdct.ProductId] = product.Product{}
-		}
-		productMap[prdct.ProductId] = prdct
-	}
-
 	// Create and populate SalesByProduct slice
 	var result []SalesByProduct
 	var idx = 0
 	for key, value := range salesByProduct {
-		idx += 1
+		idx++
 		product := productMap[key]
 		profit := value.TotalTransactionAmount - (float64(value.TotalQuantity) * product.CostPrice)
 		sale := SalesByProduct{
