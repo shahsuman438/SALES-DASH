@@ -62,3 +62,57 @@ func GetSummeryReports(ctx *gin.Context) (*SummeryReport, error) {
 	return summaryReport, nil
 
 }
+
+func GetSalesByProduct(ctx *gin.Context) ([]SalesByProduct, error) {
+	allSales, err := sales.Fetch(ctx)
+	if err != nil {
+		return nil, err
+	}
+	allProduct, err := product.Fetch(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	productMap := make(map[int]product.Product)
+
+	salesByProduct := make(map[int]saleByProductItr)
+
+	// Aggregate sales data by product
+	for _, sale := range allSales {
+		if _, ok := salesByProduct[sale.ProductId]; !ok {
+			salesByProduct[sale.ProductId] = saleByProductItr{}
+		}
+		salesData := salesByProduct[sale.ProductId]
+		salesData.TotalTransactionAmount += sale.TotalTransactionAmount
+		salesData.TotalQuantity += sale.Quantity
+		salesByProduct[sale.ProductId] = salesData
+	}
+
+	for _, prdct := range allProduct {
+		if _, ok := productMap[prdct.ProductId]; !ok {
+			productMap[prdct.ProductId] = product.Product{}
+		}
+		productMap[prdct.ProductId] = prdct
+	}
+
+	// Create and populate SalesByProduct slice
+	var result []SalesByProduct
+	var idx = 0
+	for key, value := range salesByProduct {
+		idx += 1
+		product := productMap[key]
+		profit := value.TotalTransactionAmount - (value.TotalQuantity * product.CostPrice)
+		sale := SalesByProduct{
+			Sn:                idx,
+			ProductName:       product.ProductName,
+			BrandName:         product.BrandName,
+			Category:          product.Category,
+			TotalQuantitySold: value.TotalQuantity,
+			TotalRevenue:      value.TotalTransactionAmount,
+			TotalProfit:       profit,
+		}
+		result = append(result, sale)
+	}
+
+	return result, nil
+}

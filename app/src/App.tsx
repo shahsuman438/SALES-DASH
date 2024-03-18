@@ -6,6 +6,7 @@ import Layout from './components/layout/Layout'
 import NotFound from './view/NotFound'
 import Sales from './view/Sales'
 import Dashboard from './view/Dashboard'
+import SalesByProduct from './view/reports/SalesByProduct'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path={PATHS.DASHBOARD_PATH} element={<Dashboard />} />
         <Route path={PATHS.ALL_PRODUCTS} element={<Products />} />
         <Route path={PATHS.ALL_SALES} element={<Sales />} />
+        <Route path={PATHS.SALES_BY_PRODUCTS} element={<SalesByProduct />} />
         <Route path={PATHS.NOT_FOUND} element={<NotFound />} />
       </Routes>
     </Layout>

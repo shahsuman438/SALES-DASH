@@ -15,3 +15,13 @@ export type salesType = {
     totalTransactionAmount: number,
     transactionDate: string
 }
+
+export type salesByProductType = {
+    sn: number
+    productName: string
+    brandName: string
+    category: string
+    totalQuantitySold: number
+    totalRevenue: number
+    totalProfit: number
+}
