@@ -8,6 +8,7 @@ import (
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/database"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/middleware"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/product"
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/reports"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/sales"
 )
 
@@ -26,6 +27,7 @@ func Start() {
 
 	product.StartModule(server)
 	sales.StartModule(server)
+	reports.StartModule(server)
 
 	server.Run(fmt.Sprintf("%s:%s", config.Cnfg.ServerHost, config.Cnfg.ServerPort))
 }

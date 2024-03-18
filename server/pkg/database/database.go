@@ -41,6 +41,12 @@ func ConnectDB() {
 	logger.Info("Database Connect successfully.")
 }
 
+func GetCollection(ctx *gin.Context, collectionName string) *mongo.Collection {
+	collection := db.Collection(collectionName)
+
+	return collection
+}
+
 func Save(ctx *gin.Context, data interface{}, collectionName string) error {
 	collection := db.Collection(collectionName)
 	_, err := collection.InsertOne(ctx, data)
@@ -58,6 +64,34 @@ func Fetch(ctx *gin.Context, collectionName string) ([]bson.M, error) {
 
 	// Find documents in the collection
 	cursor, err := collection.Find(ctx, bson.M{})
+	if err != nil {
+		return nil, err
+	}
+	defer cursor.Close(ctx)
+
+	var documents []bson.M
+	for cursor.Next(ctx) {
+		var doc bson.M
+		if err := cursor.Decode(&doc); err != nil {
+			return nil, err
+		}
+		documents = append(documents, doc)
+	}
+
+	if err := cursor.Err(); err != nil {
+		return nil, err
+	}
+	return documents, nil
+}
+
+func FetchByKeyValue(ctx *gin.Context, collectionName string, key string, value interface{}) ([]bson.M, error) {
+	collection := db.Collection(collectionName)
+
+	// Define filter based on key and value
+	filter := bson.M{key: value}
+
+	// Find documents in the collection by key-value pair
+	cursor, err := collection.Find(ctx, filter)
 	if err != nil {
 		return nil, err
 	}
