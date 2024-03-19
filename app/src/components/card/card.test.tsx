@@ -1,3 +1,4 @@
+// @ts-ignore
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -7,7 +8,7 @@ describe('Card Component', () => {
         const title = 'Test Title';
         const value = 'Test Value';
 
-        const { getByText } = render(<Card title={ title } value = { value } />);
+        const { getByText } = render(<Card title={title} value={value} />);
 
         const titleElement = getByText(title);
         const valueElement = getByText(value);
