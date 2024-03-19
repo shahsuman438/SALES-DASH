@@ -13,6 +13,13 @@ func setupControllers(engine *gin.Engine) {
 	r.POST("/addMany", AddManyProduct)
 }
 
+
+// @Summary Add Product
+// @Description Add a single product
+// @Produce json
+// @Success 201 {object} SuccessReponse
+// @Failure 400 {object} ErrorResponse
+// @Router /product/add [post]
 func AddProduct(c *gin.Context) {
 	var payload Product
 
@@ -30,6 +37,12 @@ func AddProduct(c *gin.Context) {
 	response.SuccessfullyCreate(c, "Product Created")
 }
 
+// @Summary Add Many Product
+// @Description Add Many product at once
+// @Produce json
+// @Success 201 {object} SuccessReponse
+// @Failure 400 {object} ErrorResponse
+// @Router /product/addMany [post]
 func AddManyProduct(c *gin.Context) {
 	var payload []Product
 
@@ -47,6 +60,13 @@ func AddManyProduct(c *gin.Context) {
 	response.SuccessfullyCreate(c, "Product Created")
 }
 
+
+// @Summary Get all Products
+// @Description Get all products
+// @Produce json
+// @Success 200 {object} []Products
+// @Failure 400 {object} ErrorResponse
+// @Router /product/ [get]
 func GetAllProducts(c *gin.Context) {
 	data, err := Fetch(c)
 	if err != nil {

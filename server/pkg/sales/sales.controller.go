@@ -10,6 +10,13 @@ func setupControllers(engine *gin.Engine) {
 	r.GET("", GetAllSales)
 }
 
+
+// @Summary Get All Sales
+// @Description Get All Sales
+// @Produce json
+// @Success 200 {object} []Sales
+// @Failure 400 {object} ErrorResponse
+// @Router /sales [get]
 func GetAllSales(c *gin.Context) {
 	data, err := Fetch(c)
 	if err != nil {
