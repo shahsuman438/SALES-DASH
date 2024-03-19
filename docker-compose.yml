@@ -12,8 +12,6 @@ services:
       - ./server:/app
     ports: 
       - "8080:8080"
-    depends_on:
-      - db
     networks:
       - sales-report-network
     container_name: sales-report-server
