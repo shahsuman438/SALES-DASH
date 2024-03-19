@@ -49,7 +49,7 @@ func processEvents(watcher *fsnotify.Watcher, dir string) {
 				if filepath.Ext(event.Name) == ".csv" {
 					logger.Info(fmt.Sprintf("New file detected: %s", event.Name))
 					if err := processFile(dir, event.Name); err != nil {
-						logger.Error("Error processing file in", err)
+						logger.Error("Error processing file error:", err)
 					}
 				}
 			}
@@ -57,7 +57,7 @@ func processEvents(watcher *fsnotify.Watcher, dir string) {
 			if !ok {
 				return
 			}
-			logger.Error("Error occurred in", err)
+			logger.Error("Error occurred error:", err)
 		}
 	}
 }
