@@ -7,7 +7,7 @@ interface Props {
 
 const Table: React.FC<Props> = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5); // Initialize with 5 items per page
+  const [itemsPerPage, setItemsPerPage] = useState(5);
   const [sortConfig, setSortConfig] = useState<{
     key: string;
     direction: 'ascending' | 'descending' | null;
@@ -67,7 +67,6 @@ const Table: React.FC<Props> = ({ data }) => {
 
   const headers = Object.keys(data[0] || {});
 
-  // Generate items per page options (5, 10, 20, 40, and so on)
   const itemsPerPageOptions = [5, 10, 20, 40];
   let nextOption = itemsPerPageOptions[itemsPerPageOptions.length - 1] * 2;
   while (nextOption <= data.length) {
