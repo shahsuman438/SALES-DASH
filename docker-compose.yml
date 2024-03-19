@@ -34,4 +34,6 @@ services:
     container_name: sales-report-app
     
 networks:
- sales-report-network:
+  sales-report-network:
+    external: true
+    driver: bridge

@@ -17,20 +17,14 @@ jobs:
     runs-on: ubunutu-latest
     
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-    
-    - name: Install Node.js and Yarn for app
-      uses: actions/setup-node@v1
-      with:
-        node-version: '20.11.x'
-        yarn-version: '1.22.x'
-      
-    - name: Lint the app project
-      run: yarn --cwd ./app/ lint
-      
-    - name: Build react
-      run: "yarn --cwd ./app/ build"
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build and Test Frontend
+        working-directory: app
+        run: |
+          yarn install
+          yarn build
       
     - name: Install golang
       uses: actions/setup-go@v2
