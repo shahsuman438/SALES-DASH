@@ -7,6 +7,7 @@ import (
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/database"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/middleware"
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/notification"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/product"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/reports"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/sales"
@@ -26,9 +27,10 @@ func Start() {
 	// setup middleware
 	server.Use(middleware.CORSMiddleware())
 	server.Use(middleware.JSONLoggerMiddleware())
-	
+
 	server.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
+	notification.StartModule(server)
 	product.StartModule(server)
 	sales.StartModule(server)
 	reports.StartModule(server)

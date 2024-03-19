@@ -8,6 +8,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/notification"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/product"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
 )
@@ -70,6 +71,7 @@ func ProcessProductFiles(pathToCsv string) error {
 	if err != nil {
 		logger.Error("Unable to add data in Produc", err)
 	}
+	notification.SendMessageToClients("New Data Procesed, Please re-sync the Table")
 	logger.Info(fmt.Sprintf("PROCESSED File %s ", pathToCsv))
 	return nil
 }
