@@ -15,12 +15,12 @@ describe('Table Component', () => {
 
     // Check the number of rows
     const rows = getAllByRole('row');
-    expect(rows.length).toBe(testData.length + 1); 
+    expect(rows.length).toBe(testData.length + 1);
 
     // Check the number of columns in the header row
     const headerRow = rows[0];
     const headerColumns = headerRow.querySelectorAll('th');
-    expect(headerColumns.length).toBe(Object.keys(testData[0]).length + 1); 
+    expect(headerColumns.length).toBe(Object.keys(testData[0]).length + 1);
 
     // Check the number of columns in each data row
     rows.slice(1).forEach((row) => {
