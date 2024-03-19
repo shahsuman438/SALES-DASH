@@ -1,0 +1,129 @@
+definitions:
+  reports.SummeryReport:
+    properties:
+      dateOfHighestSales:
+        type: string
+      dateOfLeastSales:
+        type: string
+      leastProfitableProduct:
+        type: string
+      mostProfitableProduct:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /product/:
+    get:
+      description: Get all products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: error
+          schema:
+            type: string
+      summary: Get all Products
+  /product/add:
+    post:
+      description: Add a single product
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: created
+          schema:
+            type: string
+        "400":
+          description: error
+          schema:
+            type: string
+      summary: Add Product
+  /product/addMany:
+    post:
+      description: Add Many product at once
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: created
+          schema:
+            type: string
+        "400":
+          description: error
+          schema:
+            type: string
+      summary: Add Many Product
+  /reports/sales-by-brand:
+    get:
+      description: Get Sales by product brand
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: error
+          schema:
+            type: string
+      summary: Get Reports Sales by brand
+  /reports/sales-by-product:
+    get:
+      description: Get Sales by product reports
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: error
+          schema:
+            type: string
+      summary: Get Reports Sales by product
+  /reports/summery:
+    get:
+      description: Get Summery Reports
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/reports.SummeryReport'
+        "400":
+          description: error
+          schema:
+            type: string
+      summary: Get Summery Reports
+  /sales:
+    get:
+      description: Get All Sales
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: error
+          schema:
+            type: string
+      summary: Get All Sales
+swagger: "2.0"

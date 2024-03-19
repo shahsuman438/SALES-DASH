@@ -17,8 +17,8 @@ func setupControllers(engine *gin.Engine) {
 // @Summary Get Summery Reports
 // @Description Get Summery Reports
 // @Produce json
-// @Success 200 {object} SummeryReport
-// @Failure 400 {object} ErrorResponse
+// @Success 200 {object} SummeryReport "ok"
+// @Failure 400 {object} string "error"
 // @Router /reports/summery [get]
 func getSummery(c *gin.Context) {
 	report, err := GetSummeryReports(c)
@@ -34,8 +34,8 @@ func getSummery(c *gin.Context) {
 // @Summary Get Reports Sales by product
 // @Description Get Sales by product reports
 // @Produce json
-// @Success 200 {object} []salesByProduct
-// @Failure 400 {object} ErrorResponse
+// @Success 200 {array} string "ok"
+// @Failure 400 {object} string "error"
 // @Router /reports/sales-by-product [get]
 func getSalesByProduct(c *gin.Context) {
 	report, err := GetSalesByProduct(c)
@@ -50,8 +50,8 @@ func getSalesByProduct(c *gin.Context) {
 // @Summary Get Reports Sales by brand
 // @Description Get Sales by product brand
 // @Produce json
-// @Success 200 {object} []salesByBrand
-// @Failure 400 {object} ErrorResponse
+// @Success 200 {array} string "ok"
+// @Failure 400 {object} string "error"
 // @Router /reports/sales-by-brand [get]
 func getSalesByBrand(c *gin.Context) {
 	report, err := GetSalesByBrand(c)
