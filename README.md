@@ -33,16 +33,21 @@ It is a Dashboard to display sales transaction and different products with repor
 
 ### setup BE
 
-2. **Install dependencies:**
+- **Install dependencies:**
 
     ```bash
     go mod tidy
     ```
 
-3. **Build the project:**
+- **Build the project:**
 
     ```bash
     go build
+    ```
+- **Start the project:**
+
+    ```bash
+    go run main.go
     ```
 
 
@@ -50,6 +55,14 @@ It is a Dashboard to display sales transaction and different products with repor
 
 - change example.env to .env in both server and app and provide required db credentials to server/.env
 
+
+## sample page view
+
+![Dash board](/sampleImages/dashboard.png)
+![All Product](/sampleImages/allproduct.png)
+![All Sales](/sampleImages/allsales.png)
+![Report by brand](/sampleImages/reportbybrand.png)
+![Report by product](/sampleImages/reportbyproduct.png)
 
 ## Contact
 

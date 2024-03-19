@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  server:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
+    env_file:
+      - ./server/server.env
+    restart: always
+    volumes:
+      - ./server:/app
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - sales-report-network
+    container_name: sales-report-server
+
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    env_file:
+      - ./app/app.env
+    volumes:
+      - ./app:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    restart: always
+    networks:
+      - sales-report-network
+    container_name: sales-report-app
+    
+networks:
+ sales-report-network:
