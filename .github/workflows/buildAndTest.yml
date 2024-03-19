@@ -26,9 +26,6 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.20'
-    
-      - name: Lint Go
-        run: go fmt ./server
-        
+
       - name: Build Go
         run: go build -o server ./server
