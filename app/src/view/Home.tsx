@@ -1,11 +1,11 @@
-import Dashboard from "./Dashboard"
+import Dashboard from './Dashboard';
 
 const Home = () => {
   return (
-    <div className="container">
+    <div className='container'>
       <Dashboard />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,0 +1,44 @@
+# CI/CD Pipeline for the leapflow.
+# This is just a bare minimum action written.
+# Actions added are: Installing node, yarn, and golang. Lint and building files. Simple echo script for deploy.
+
+name: build and test
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs: 
+  build:
+    runs-on: ubunutu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    
+    - name: Install Node.js and Yarn for app
+      uses: actions/setup-node@v1
+      with:
+        node-version: '20.11.x'
+        yarn-version: '1.22.x'
+      
+    - name: Lint the app project
+      run: yarn --cwd ./app/ lint
+      
+    - name: Build react
+      run: "yarn --cwd ./app/ build"
+      
+    - name: Install golang
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.21'
+    
+    - name: Lint Go
+      run: go fmt ./server
+      
+    - name: Build Go
+      run: go build -o server ./server

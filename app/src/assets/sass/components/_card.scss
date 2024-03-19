@@ -1,21 +1,21 @@
 .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
-    @include e('title') {
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-size: 18px;
-        color: $blue-500;
-    }
+  @include e('title') {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: $blue-500;
+  }
 
-    @include e('value') {
-        margin: 0;
-        font-size: 16px;
-        color: $blue-400;
-    }
+  @include e('value') {
+    margin: 0;
+    font-size: 16px;
+    color: $blue-400;
+  }
 }

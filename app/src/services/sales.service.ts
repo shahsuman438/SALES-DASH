@@ -1,12 +1,11 @@
-import axiosInstance from "../interceptor/axiosConfig"
+import axiosInstance from '../interceptor/axiosConfig';
 
 const getAllSales = () => {
-    return axiosInstance.get("/sales")
-}
-
+  return axiosInstance.get('/sales');
+};
 
 const salesService = {
-    getAllSales
-}
+  getAllSales,
+};
 
 export default salesService;

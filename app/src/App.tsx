@@ -1,13 +1,13 @@
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import { PATHS } from './routes'
-import Products from './view/Products'
-import Layout from './components/layout/Layout'
-import NotFound from './view/NotFound'
-import Sales from './view/Sales'
-import Dashboard from './view/Dashboard'
-import SalesByProduct from './view/reports/SalesByProduct'
-import SalesByBrand from './view/reports/SalesByBrand'
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { PATHS } from './routes';
+import Products from './view/Products';
+import Layout from './components/layout/Layout';
+import NotFound from './view/NotFound';
+import Sales from './view/Sales';
+import Dashboard from './view/Dashboard';
+import SalesByProduct from './view/reports/SalesByProduct';
+import SalesByBrand from './view/reports/SalesByBrand';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path={PATHS.NOT_FOUND} element={<NotFound />} />
       </Routes>
     </Layout>
-  )
+  );
 }
 
-export default App
+export default App;

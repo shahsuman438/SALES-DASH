@@ -1,11 +1,11 @@
-import axiosInstance from "../interceptor/axiosConfig"
+import axiosInstance from '../interceptor/axiosConfig';
 
 const getAllProducts = () => {
-    return axiosInstance.get('/product')
-}
+  return axiosInstance.get('/product');
+};
 
 const productService = {
-    getAllProducts
-}
+  getAllProducts,
+};
 
 export default productService;

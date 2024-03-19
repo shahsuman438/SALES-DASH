@@ -1,22 +1,21 @@
-import axiosInstance from "../interceptor/axiosConfig"
-
+import axiosInstance from '../interceptor/axiosConfig';
 
 const getSummeryReport = () => {
-    return axiosInstance.get("/reports/summery")
-}
+  return axiosInstance.get('/reports/summery');
+};
 
 const getSalesByBrandReports = () => {
-    return axiosInstance.get("/reports/sales-by-brand")
-}
+  return axiosInstance.get('/reports/sales-by-brand');
+};
 
 const getSalesByProductReports = () => {
-    return axiosInstance.get("/reports/sales-by-product")
-}
+  return axiosInstance.get('/reports/sales-by-product');
+};
 
 const reportService = {
-    getSummeryReport,
-    getSalesByProductReports,
-    getSalesByBrandReports
-}
+  getSummeryReport,
+  getSalesByProductReports,
+  getSalesByBrandReports,
+};
 
-export default reportService
+export default reportService;

@@ -1,17 +1,17 @@
 import React, { ReactNode } from 'react';
-import Navbar from '@components/navBar/Navbar';
+import Navbar from '../navBar/Navbar';
 
 interface LayoutProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-    return (
-        <div className="d-flex d-flex-col">
-            <Navbar />
-            {children}
-        </div>
-    );
+  return (
+    <div className='d-flex d-flex-col'>
+      <Navbar />
+      {children}
+    </div>
+  );
 };
 
 export default Layout;
