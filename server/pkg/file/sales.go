@@ -73,7 +73,7 @@ func ProcessSalesFile(pathToCsv string) error {
 	if err != nil {
 		logger.Error("Unable to add data in Sales", err)
 	}
-	notification.SendMessageToClients("New Data Procesed, Please re-sync the Table")
+	notification.SendMessageToClients("New File Processed, Please re-sync the Table.")
 	logger.Info(fmt.Sprintf("PROCESSED File %s ", pathToCsv))
 	return nil
 }
