@@ -39,13 +39,13 @@ func ProcessSalesFile(pathToCsv string) error {
 		var transaction sales.Sales
 		tId, err := strconv.Atoi(record[0])
 		if err != nil {
-			logger.Error("Error Converting productId", err)
+			logger.Error("Error Converting tId", err)
 			continue
 		}
 		transaction.TransactionId = tId
 		pId, err := strconv.Atoi(record[1])
 		if err != nil {
-			logger.Error("Error Converting productId", err)
+			logger.Error("Error Converting TransactionId", err)
 			continue
 		}
 		transaction.ProductId = pId
@@ -58,7 +58,7 @@ func ProcessSalesFile(pathToCsv string) error {
 
 		tAmount, err := strconv.Atoi(record[3])
 		if err != nil {
-			logger.Error("Error Converting productId", err)
+			logger.Error("Error Converting transaction amount", err)
 			continue
 		}
 
