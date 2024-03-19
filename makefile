@@ -19,6 +19,6 @@ logs:
 remove: 
 	docker-compose -f $(COMPOSE_FILE) down --rmi all -v 
 server-ip:
-	docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' leapflow-server
+	docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sales-report-server
 restart-all:
 	make down && make build && make up && docker ps

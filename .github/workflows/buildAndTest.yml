@@ -30,4 +30,4 @@ jobs:
 
       - name: Build Go
         working-directory: server
-        run: go build -o server ./...
+        run: go build 
