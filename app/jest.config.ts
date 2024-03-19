@@ -1,5 +1,6 @@
 export default {
     verbose: true,
     collectCoverage: true,
-    testEnvironment: "jsdom"
+    testEnvironment: "jsdom",
+    setupFilesAfterEnv: ['<rootDir>/src/setupTest.ts'],
   };
