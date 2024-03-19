@@ -63,6 +63,7 @@ It is a Dashboard to display sales transaction and different products with repor
 ![All Sales](/sampleImages/allsales.png)
 ![Report by brand](/sampleImages/reportbybrand.png)
 ![Report by product](/sampleImages/reportbyproduct.png)
+![Notification](/sampleImages/salesNotification.png)
 
 ## Contact
 
