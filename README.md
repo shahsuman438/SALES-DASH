@@ -58,12 +58,12 @@ It is a Dashboard to display sales transaction and different products with repor
 
 ## sample page view
 
-![Dash board](/sampleImages/dashboard.png)
-![All Product](/sampleImages/allproduct.png)
-![All Sales](/sampleImages/allsales.png)
-![Report by brand](/sampleImages/reportbybrand.png)
-![Report by product](/sampleImages/reportbyproduct.png)
-![Notification](/sampleImages/salesNotification.png)
+![Dash board](/app/src/assets/images/dashboard.png)
+![All Product](/app/src/assets/images/allproduct.png)
+![All Sales](/app/src/assets/images/allsales.png)
+![Report by brand](/app/src/assets/images/reportbybrand.png)
+![Report by product](/app/src/assets/images/reportbyproduct.png)
+![Notification](/app/src/assets/images/salesNotification.png)
 
 ## Contact
 
