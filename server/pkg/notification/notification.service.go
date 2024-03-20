@@ -20,7 +20,7 @@ func StartServerSentEvents(c *gin.Context) {
 	}
 
 	// Send an initial message to connect client
-	fmt.Fprintf(c.Writer, "data: %s\n\n", `{"message": "SSE Connected Success."}`)
+	fmt.Fprintf(c.Writer, "data: %s\n\n", `{"message": ""}`)
 	flusher.Flush()
 
 	for {
