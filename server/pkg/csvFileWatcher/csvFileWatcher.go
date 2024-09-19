@@ -6,11 +6,10 @@ import (
 	"path/filepath"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/file"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
 )
 
-func WatchCSVFiles(dir string) error {
+func WatchCSVFiles(dir string, processSalesFile func(string) error, processProductFile func(string) error) error {
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		return err
@@ -21,7 +20,7 @@ func WatchCSVFiles(dir string) error {
 		return err
 	}
 
-	processEvents(watcher, dir)
+	processEvents(watcher, dir, processSalesFile, processProductFile)
 
 	return nil
 }
@@ -38,7 +37,7 @@ func addDirectoryToWatcher(watcher *fsnotify.Watcher, dir string) error {
 	})
 }
 
-func processEvents(watcher *fsnotify.Watcher, dir string) {
+func processEvents(watcher *fsnotify.Watcher, dir string, processSalesFile func(string) error, processProductFile func(string) error) {
 	for {
 		select {
 		case event, ok := <-watcher.Events:
@@ -48,7 +47,7 @@ func processEvents(watcher *fsnotify.Watcher, dir string) {
 			if event.Op&fsnotify.Create == fsnotify.Create {
 				if filepath.Ext(event.Name) == ".csv" {
 					logger.Info(fmt.Sprintf("New file detected: %s", event.Name))
-					if err := processFile(dir, event.Name); err != nil {
+					if err := processFile(dir, event.Name, processSalesFile, processProductFile); err != nil {
 						logger.Error("Error processing file error:", err)
 					}
 				}
@@ -62,11 +61,9 @@ func processEvents(watcher *fsnotify.Watcher, dir string) {
 	}
 }
 
-func processFile(dir, fileName string) error {
-	processFunc := file.ProcessSalesFile
+func processFile(dir, fileName string, processSalesFile func(string) error, processProductFile func(string) error) error {
 	if dir == "products" {
-		processFunc = file.ProcessProductFiles
+		return processProductFile(fileName)
 	}
-
-	return processFunc(fileName)
+	return processSalesFile(fileName)
 }
