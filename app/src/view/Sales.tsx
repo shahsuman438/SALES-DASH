@@ -48,8 +48,7 @@ const Sales = () => {
   return (
     <div>
       <div className='flex justify-between items-center'>
-        <h1 className='text-blue'>ALL Sales
-        </h1>
+        <h1 className='text-blue'>ALL Sales</h1>
         <button
           onClick={handleSync}
           disabled={loading}
@@ -62,7 +61,7 @@ const Sales = () => {
           )}
         </button>
       </div>
-      <Table data={data} />
+      {data && <Table data={data} />}
     </div>
   );
 };

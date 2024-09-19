@@ -7,7 +7,7 @@
         "request": "launch",
         "mode": "debug",
         "host": "127.0.0.1",
-        "program": "server/cmd/main.go",
+        "program": "server/main.go",
         "env": {},
         "showLog": true,
         "args": [

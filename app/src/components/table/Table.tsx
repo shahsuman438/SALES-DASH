@@ -22,8 +22,8 @@ const Table: React.FC<Props> = ({ data }) => {
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentItems = data.slice(startIndex, endIndex);
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const currentItems = data?.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(data?.length / itemsPerPage);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -69,7 +69,7 @@ const Table: React.FC<Props> = ({ data }) => {
 
   const itemsPerPageOptions = [5, 10, 20, 40];
   let nextOption = itemsPerPageOptions[itemsPerPageOptions.length - 1] * 2;
-  while (nextOption <= data.length) {
+  while (nextOption <= data?.length) {
     itemsPerPageOptions.push(nextOption);
     nextOption *= 2;
   }
@@ -90,7 +90,7 @@ const Table: React.FC<Props> = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {sortedData.map((item: any, index: number) => (
+          {sortedData?.map((item: any, index: number) => (
             <tr key={index}>
               <td>{index + 1}</td>
               {headers.map((header, index) => (

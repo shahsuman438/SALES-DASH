@@ -50,17 +50,21 @@ const Products = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className='flex justify-between items-center'>
         <h1 className='text-blue'>ALL Products</h1>
-        <button onClick={handleSync} disabled={loading} className="btn btn--primary">
+        <button
+          onClick={handleSync}
+          disabled={loading}
+          className='btn btn--primary'
+        >
           {loading ? (
-            <span className="mr-2">Syncing...</span>
+            <span className='mr-2'>Syncing...</span>
           ) : (
-            <span className="mr-2">Sync</span>
+            <span className='mr-2'>Sync</span>
           )}
         </button>
       </div>
-      <Table data={data} />
+      {data && <Table data={data} />}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 package product
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/gin-gonic/gin"
@@ -48,7 +49,11 @@ func FetchByKeyValue(ctx *gin.Context, key string, value interface{}) ([]Product
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(data)
+	if len(data) == 0 {
+		logCmt := fmt.Sprintf("No data found for key key:%s, value: %s", key, value)
+		logger.Info(logCmt)
+		return nil, errors.New(logCmt)
+	}
 	var products []Product
 	for _, item := range data {
 		var product Product
