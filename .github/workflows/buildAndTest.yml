@@ -28,6 +28,6 @@ jobs:
         with:
           go-version: '1.21.3'
 
-      - name: Build Go
+      - name: Test Go
         working-directory: server
-        run: go build 
+        run: go test 
