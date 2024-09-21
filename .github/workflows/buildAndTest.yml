@@ -27,7 +27,15 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: '1.21.3'
+      - name: Set up Go modules
+        run: |
+          go mod download
+          go mod tidy
 
       - name: Test Go
         working-directory: server
         run: go test 
+
+      - name: Build Go
+        working-directory: server
+        run: go build 
