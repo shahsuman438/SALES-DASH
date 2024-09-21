@@ -28,8 +28,9 @@ jobs:
         with:
           go-version: '1.21.3'
       - name: Set up Go modules
+        working-directory: server
         run: |
-          go mod tidy
+          go mod vendor
 
       - name: Test Go
         working-directory: server
