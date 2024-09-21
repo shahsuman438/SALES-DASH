@@ -26,7 +26,7 @@ func WatchCSVFiles(dir string, processSalesFile func(string) error, processProdu
 }
 
 func addDirectoryToWatcher(watcher *fsnotify.Watcher, dir string) error {
-	return filepath.Walk("data/"+dir, func(path string, info os.FileInfo, err error) error {
+	return filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}

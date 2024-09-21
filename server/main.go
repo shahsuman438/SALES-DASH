@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/shahsuman438/SALES-DASH/server/pkg/app"
 	"github.com/shahsuman438/SALES-DASH/server/pkg/csvfilewatcher"
 	"github.com/shahsuman438/SALES-DASH/server/pkg/file"
@@ -29,7 +31,7 @@ func startWatcher(dir string, processSalesFile func(string) error, processProduc
 	}()
 
 	// Call WatchCSVFiles with appropriate file processing functions
-	if err := csvfilewatcher.WatchCSVFiles(dir, processSalesFile, processProductFile); err != nil {
+	if err := csvfilewatcher.WatchCSVFiles(fmt.Sprintf("data/%s", dir), processSalesFile, processProductFile); err != nil {
 		logger.Error("Unable to watch csv files in", err)
 	}
 }
