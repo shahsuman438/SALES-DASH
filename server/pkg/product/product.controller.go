@@ -1,16 +1,16 @@
 package product
 
 import (
-    "github.com/gin-gonic/gin"
-    "github.com/shahsuman438/SALES-DASH/CORE-API/pkg/response"
-    "github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"github.com/gin-gonic/gin"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/response"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
 func setupControllers(engine *gin.Engine) {
-    r := engine.Group("/product")
-    r.GET("", GetAllProducts)
-    r.POST("/add", AddProduct)
-    r.POST("/addMany", AddManyProduct)
+	r := engine.Group("/product")
+	r.GET("", GetAllProducts)
+	r.POST("/add", AddProduct)
+	r.POST("/addMany", AddManyProduct)
 }
 
 // AddProduct adds a single product.
@@ -21,20 +21,20 @@ func setupControllers(engine *gin.Engine) {
 // @Failure 400 {object} string "error"
 // @Router /product/add [post]
 func AddProduct(c *gin.Context) {
-    var payload Product
+	var payload Product
 
-    err := c.BindJSON(&payload)
-    if err != nil {
-        response.BadRequest(c, err)
-        return
-    }
-    err = Add(c, &payload)
-    if err != nil {
-        logger.Error("Unable to Save to Product Error:", err)
-        response.BadRequest(c, err)
-        return
-    }
-    response.SuccessfullyCreate(c, "Product Created")
+	err := c.BindJSON(&payload)
+	if err != nil {
+		response.BadRequest(c, err)
+		return
+	}
+	err = Add(c, &payload)
+	if err != nil {
+		logger.Error("Unable to Save to Product Error:", err)
+		response.BadRequest(c, err)
+		return
+	}
+	response.SuccessfullyCreate(c, "Product Created")
 }
 
 // AddManyProduct adds many products at once.
@@ -45,20 +45,20 @@ func AddProduct(c *gin.Context) {
 // @Failure 400 {object} string "error"
 // @Router /product/addMany [post]
 func AddManyProduct(c *gin.Context) {
-    var payload []Product
+	var payload []Product
 
-    err := c.BindJSON(&payload)
-    if err != nil {
-        response.BadRequest(c, err)
-        return
-    }
-    err = AddMany(c, &payload)
-    if err != nil {
-        logger.Error("Unable to Save to Product Error:", err)
-        response.BadRequest(c, err)
-        return
-    }
-    response.SuccessfullyCreate(c, "Product Created")
+	err := c.BindJSON(&payload)
+	if err != nil {
+		response.BadRequest(c, err)
+		return
+	}
+	err = AddMany(c, &payload)
+	if err != nil {
+		logger.Error("Unable to Save to Product Error:", err)
+		response.BadRequest(c, err)
+		return
+	}
+	response.SuccessfullyCreate(c, "Product Created")
 }
 
 // GetAllProducts retrieves all products.
@@ -69,10 +69,10 @@ func AddManyProduct(c *gin.Context) {
 // @Failure 400 {object} string "error"
 // @Router /product/ [get]
 func GetAllProducts(c *gin.Context) {
-    data, err := Fetch(c)
-    if err != nil {
-        response.BadRequest(c, err)
-        return
-    }
-    response.Success(c, data)
+	data, err := Fetch(c)
+	if err != nil {
+		response.BadRequest(c, err)
+		return
+	}
+	response.Success(c, data)
 }

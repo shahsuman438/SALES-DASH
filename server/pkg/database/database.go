@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/config"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

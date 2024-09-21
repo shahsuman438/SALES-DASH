@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/config"
 )
 
 // SetCORSHeaders sets the required CORS headers

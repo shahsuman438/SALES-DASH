@@ -19,9 +19,9 @@ jobs:
       - name: Build and Test Frontend
         working-directory: app
         run: |
-          yarn install
-          yarn test
-          yarn build
+          npm install
+          npm run test
+          npm run build
 
       - name: Install golang
         uses: actions/setup-go@v2

@@ -2,8 +2,8 @@ package reports
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/response"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/response"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
 func setupControllers(engine *gin.Engine) {
@@ -12,7 +12,6 @@ func setupControllers(engine *gin.Engine) {
 	r.GET("/sales-by-product", getSalesByProduct)
 	r.GET("/sales-by-brand", getSalesByBrand)
 }
-
 
 // @Summary Get Summery Reports
 // @Description Get Summery Reports
@@ -29,7 +28,6 @@ func getSummery(c *gin.Context) {
 	}
 	response.Success(c, report)
 }
-
 
 // @Summary Get Reports Sales by product
 // @Description Get Sales by product reports

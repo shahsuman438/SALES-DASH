@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
 func WatchCSVFiles(dir string, processSalesFile func(string) error, processProductFile func(string) error) error {

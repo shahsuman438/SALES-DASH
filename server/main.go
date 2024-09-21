@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/app"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/csvfilewatcher"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/file"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/app"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/csvfilewatcher"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/file"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
 func main() {

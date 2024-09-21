@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/csvfilewatcher"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/csvfilewatcher"
 	"github.com/stretchr/testify/assert"
 )
 

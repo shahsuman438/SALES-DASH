@@ -8,9 +8,9 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/notification"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/sales"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/notification"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/sales"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
 func ProcessSalesFile(pathToCsv string) error {

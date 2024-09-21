@@ -4,16 +4,16 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/config"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/database"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/middleware"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/notification"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/product"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/reports"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/sales"
-	_ "github.com/shahsuman438/SALES-DASH/CORE-API/docs"
+	_ "github.com/shahsuman438/SALES-DASH/server/docs"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/config"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/database"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/middleware"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/notification"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/product"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/reports"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/sales"
 	swaggerFiles "github.com/swaggo/files"
-	"github.com/swaggo/gin-swagger"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func Start() {

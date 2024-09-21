@@ -5,8 +5,8 @@ import (
 	"sync"
 
 	"github.com/gin-gonic/gin"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/product"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/sales"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/product"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/sales"
 )
 
 // Struct to hold aggregation of sale values

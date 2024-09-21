@@ -3,8 +3,8 @@ package sales
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/mitchellh/mapstructure"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/database"
-	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/utils/logger"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/database"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
 var collectionName = "Sales"
