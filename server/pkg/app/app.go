@@ -11,6 +11,7 @@ import (
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/product"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/reports"
 	"github.com/shahsuman438/SALES-DASH/CORE-API/pkg/sales"
+	_ "github.com/shahsuman438/SALES-DASH/CORE-API/docs"
 	swaggerFiles "github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
 )

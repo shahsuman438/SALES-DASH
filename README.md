@@ -23,12 +23,12 @@ It is a Dashboard to display sales transaction and different products with repor
 - **Install dependencies:**
 
     ```bash
-    yarn install
+    npm install
 
 - **run app:**
 
     ```bash
-    yarn dev
+    npm run dev
     
 
 ### setup BE
@@ -50,6 +50,11 @@ It is a Dashboard to display sales transaction and different products with repor
     go run main.go
     ```
 
+- **Swagger:**
+
+    ```bash
+    localhost:8080/docs/index.html
+    ```
 
 ## Configuration
 
@@ -64,6 +69,8 @@ It is a Dashboard to display sales transaction and different products with repor
 ![Report by brand](/app/src/assets/images/reportbybrand.png)
 ![Report by product](/app/src/assets/images/reportbyproduct.png)
 ![Notification](/app/src/assets/images/salesNotification.png)
+![Swagger](/app/src/assets/images/swagger.png)
+
 
 ## Contact
 
