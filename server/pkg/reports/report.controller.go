@@ -3,6 +3,7 @@ package reports
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/shahsuman438/SALES-DASH/server/pkg/response"
+	loggerservice "github.com/shahsuman438/SALES-DASH/server/pkg/services/logger-service"
 	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
@@ -26,6 +27,7 @@ func getSummery(c *gin.Context) {
 		response.BadRequest(c, err)
 		return
 	}
+	loggerservice.WriteLog(&loggerservice.LoggerPayload{Name: "APP", Data: "Summery report is generated and responded to APP"})
 	response.Success(c, report)
 }
 
@@ -42,6 +44,7 @@ func getSalesByProduct(c *gin.Context) {
 		response.BadRequest(c, err)
 		return
 	}
+	loggerservice.WriteLog(&loggerservice.LoggerPayload{Name: "APP", Data: "Sales report is generated and responded to APP"})
 	response.Success(c, report)
 }
 
@@ -58,5 +61,6 @@ func getSalesByBrand(c *gin.Context) {
 		response.BadRequest(c, err)
 		return
 	}
+	loggerservice.WriteLog(&loggerservice.LoggerPayload{Name: "APP", Data: "Sales by brand report is generated and responded to APP"})
 	response.Success(c, report)
 }
