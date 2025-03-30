@@ -38,6 +38,7 @@ func ProcessProductFiles(pathToCsv string) error {
 			return err
 		}
 		var product product.Product
+		fmt.Println(record)
 		pId, err := strconv.Atoi(record[0])
 		if err != nil {
 			logger.Error("Error Converting productId", err)

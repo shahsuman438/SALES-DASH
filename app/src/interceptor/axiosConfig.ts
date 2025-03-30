@@ -6,6 +6,7 @@ const axiosInstance: AxiosInstance = axios.create({
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': 'bearer valid-token' //TODO: get this from localstorage
   },
 });
 
@@ -39,8 +40,8 @@ axiosInstance.interceptors.response.use(
 );
 
 const handleUnauthorized = () => {
-  setTimeout(() => {
-    window.location.reload();
-  }, 1000);
+  // setTimeout(() => {
+  //   window.location.reload();
+  // }, 1000);
 };
 export default axiosInstance;

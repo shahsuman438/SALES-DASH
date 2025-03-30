@@ -2,15 +2,19 @@ package product
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/shahsuman438/SALES-DASH/server/pkg/middleware"
 	"github.com/shahsuman438/SALES-DASH/server/pkg/response"
 	"github.com/shahsuman438/SALES-DASH/server/pkg/utils/logger"
 )
 
 func setupControllers(engine *gin.Engine) {
-	r := engine.Group("/product")
-	r.GET("", GetAllProducts)
-	r.POST("/add", AddProduct)
-	r.POST("/addMany", AddManyProduct)
+	// Protected routes (require authentication)
+	protected := engine.Group("/product")
+	protected.Use(middleware.AuthMiddleware())
+	
+	protected.GET("", GetAllProducts)
+	protected.POST("/add", AddProduct)
+	protected.POST("/addMany", AddManyProduct)
 }
 
 // AddProduct adds a single product.

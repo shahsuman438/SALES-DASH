@@ -62,7 +62,7 @@ func processEvents(watcher *fsnotify.Watcher, dir string, processSalesFile func(
 }
 
 func processFile(dir, fileName string, processSalesFile func(string) error, processProductFile func(string) error) error {
-	if dir == "products" {
+	if dir == "data/products" {
 		return processProductFile(fileName)
 	}
 	return processSalesFile(fileName)

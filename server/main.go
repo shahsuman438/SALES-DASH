@@ -20,7 +20,7 @@ func main() {
 	// Start the application
 	app.Start()
 
-	// Wait for both watchers to complete (just an example, in production you might want continuous watching)
+	// Wait for both watchers to complete
 	<-done
 	<-done
 }
